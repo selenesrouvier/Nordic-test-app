@@ -1,0 +1,14 @@
+{
+  "status": 200,
+  "statusText": "",
+  "headers": {
+    "content-type": "application/json;charset=UTF-8"
+  },
+  "data": {
+    "android": 0,
+    "ios": 0,
+    "web-mobile": 3,
+    "web-tablet": 3,
+    "web-desktop": 3
+  }
+}

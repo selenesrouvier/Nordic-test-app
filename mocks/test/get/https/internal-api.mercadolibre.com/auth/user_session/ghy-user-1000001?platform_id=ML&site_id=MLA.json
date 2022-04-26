@@ -1,0 +1,26 @@
+
+{
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "content-type": "application/json",
+    "x-transaction-name": "secure_session_get",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-xss-protection": "1; mode=block"
+  },
+  "data": {
+    "user_id": 1000001,
+    "operator_id": null,
+    "creation_date": "2019-10-17T10:06:37.893-04:00",
+    "expire_date": "2022-10-16T10:06:37.890-04:00",
+    "site_id": "mla",
+    "scopes": [
+      "read",
+      "write"
+    ],
+    "admin_otp": false,
+    "user_grant": "auth-login-sessions-api||1000001##read,write##active##MLA####false####e9bf6c31-db15-4a62-8297-9ea60c2ebbb1##||1665929197890||TvWJgnjQVBHiS+Z6Wq/SefpXHpkkoEXYt0+/vDefifVc+bDlWlBCd3VDIx0Aws4+YvhVyyGXmXFkIxzQbz6B57wtWCjTx8qS1lbzXuoeXpGq1MGDr+JpyL+oG5/dzJ3tFdLZQl2npwLLXKaeRfqw0UT0PvVeiy/8A62lTzuiDew=",
+    "detached_id": "e9bf6c31-db15-4a62-8297-9ea60c2ebbb1"
+  }
+}
