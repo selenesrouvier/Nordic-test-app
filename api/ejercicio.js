@@ -1,7 +1,7 @@
 const router = require('nordic/ragnar').router();
 const products = require('./utils');
 
-router.get('/ej1', (req, res) => {
+router.get('/ej1', (req, res) => { 
   const { name } = req.query;
   const productsSelected = products.filter(product => {
     return product.name.toLowerCase() === name.toLowerCase() && product
