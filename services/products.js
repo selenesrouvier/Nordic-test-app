@@ -11,7 +11,7 @@ class ProductService {
         q: name
       }
     })
-      .then(response => response.data);
+      .then(response => response.data.results);
   };
 }
   
