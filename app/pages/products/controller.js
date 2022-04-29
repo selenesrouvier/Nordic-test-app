@@ -1,26 +1,27 @@
 const React = require('react');
 const View = require('./view');
-const productService = require('../../../services/products');
+const ProductService = require('../../../services/products')
+const I18nProvider = require('nordic/i18n/I18nProvider');
 
-exports.fetchProductsData = function fetchProductsData(req, res, next) {
-  
-  productService.getProducts('iphone', req.platform.siteId)
+exports.fetchProductsData = fetchProductsData = (req, res, next) => {
+  ProductService.getProductsByName('Iphone', 10, req.platform.siteId)
     .then(data => {
-      //console.log(data)
       res.locals.products = data;
       next();
     })
     .catch(err => next(err));
-
 };
 
-exports.render = function render(req, res) {
-
-  const ProductsView = props => <View {...props} />
-
-  res.render(ProductsView, {
-    title: 'page de productos', 
-    products: res.locals.products,
+exports.render =  render = (req, res) => {
+  const Products = props => {
+    return (
+      <I18nProvider i18n={req.i18n}>
+        <View {...props} />
+      </I18nProvider>
+    )
+  }
+  res.render(Products, { 
+    products: res.locals.products.results,
+    translations: req.translations,
   })
-
 }

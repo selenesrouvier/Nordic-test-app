@@ -3,17 +3,15 @@ const restclient = require('nordic/restclient')({
 });
 
 class ProductService {
-  // por defecto ya autocompleta con la parte inicial de la URL
-  //https://internal-api.mercadolibre.com/
-  static getProducts(name, siteId) {
+  static getProductsByName(name, limit, siteId) {
     return restclient.get(`/sites/${siteId}/search`, {
-      params: {
-        q: name
-      }
+        params: {
+            q: name,
+            limit: limit,
+        }
     })
-      .then(response => response.data.results);
+      .then(response => response.data);
   };
 }
-  
+
 module.exports = ProductService;
-  
