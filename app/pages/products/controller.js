@@ -1,6 +1,8 @@
 const React = require('react');
 const View = require('./view');
+const config = require('nordic/config');
 const ProductService = require('../../../services/products')
+const ImageProvider = require('nordic/image/provider');
 const I18nProvider = require('nordic/i18n/I18nProvider');
 
 exports.fetchProductsData = fetchProductsData = (req, res, next) => {
@@ -13,10 +15,15 @@ exports.fetchProductsData = fetchProductsData = (req, res, next) => {
 };
 
 exports.render =  render = (req, res) => {
+
+  const imagesPrefix = config.assets.prefix;
+
   const Products = props => {
     return (
       <I18nProvider i18n={req.i18n}>
-        <View {...props} />
+        <ImageProvider prefix={imagesPrefix}>
+          <View {...props} />
+        </ImageProvider>
       </I18nProvider>
     )
   }

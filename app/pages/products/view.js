@@ -6,6 +6,7 @@ const DemoComponent = require('../../components/DemoComponent');
 const Script = require('nordic/script');
 // convierte la info en algun tipo de datos para poder utilizarla en otros lugares, del lado del cliente
 const serialize = require('serialize-javascript');
+const Image = require('nordic/image');
 //require('./styles.scss')
 
 const View = ({ products, translations, i18n }) => {
@@ -39,9 +40,8 @@ const View = ({ products, translations, i18n }) => {
           const { price, thumbnail } = buy_box_winner || ''
           return (
             <div key={index}>
-              <img src={thumbnail} alt="product-img" />
-              <p>{name}</p>
-              <p>{price}</p>
+              <p>{name} - ${price}</p>
+              <Image className="demo-images__img" src={thumbnail} alt="product-img" />
             </div>
           )
         })}
