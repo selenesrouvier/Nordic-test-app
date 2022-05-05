@@ -18,7 +18,7 @@ exports.render =  render = (req, res) => {
 
   const imagesPrefix = config.assets.prefix;
 
-  const Products = props => {
+  const Search = props => {
     return (
       <I18nProvider i18n={req.i18n}>
         <ImageProvider prefix={imagesPrefix}>
@@ -27,7 +27,7 @@ exports.render =  render = (req, res) => {
       </I18nProvider>
     )
   }
-  res.render(Products, { 
+  res.render(Search, { 
     products: res.locals.products,
     translations: req.translations,
     imagesPrefix

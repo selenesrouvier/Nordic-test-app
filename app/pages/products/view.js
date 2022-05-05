@@ -9,7 +9,7 @@ const serialize = require('serialize-javascript');
 const Image = require('nordic/image');
 //require('./styles.scss')
 
-const View = ({ products, translations, i18n }) => {
+const View = ({ products, translations, i18n, imagesPrefix }) => {
 
   const filteredProducts = products.filter(product => product.name)
   
@@ -17,6 +17,7 @@ const View = ({ products, translations, i18n }) => {
     i18n,
     translations,
     products,
+    imagesPrefix
   };
 
   return (
@@ -36,11 +37,11 @@ const View = ({ products, translations, i18n }) => {
       
       <div className="products-container">
         {filteredProducts.map((product, index) => {
-          const { buy_box_winner, name } = product || ''
+          const { buy_box_winner, title } = product || ''
           const { price, thumbnail } = buy_box_winner || ''
           return (
             <div key={index}>
-              <p>{name} - ${price}</p>
+              <p>{title} - ${price}</p>
               <Image className="demo-images__img" src={thumbnail} alt="product-img" />
             </div>
           )
