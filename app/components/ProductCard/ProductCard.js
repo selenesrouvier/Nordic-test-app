@@ -6,15 +6,12 @@ const ProductCard = ({ product, handleFavorites, isFavorite }) => {
   const { name, id, title, price, thumbnail, permalink } = product || ''  
 
   return (
-    <a
-      className='product'
-      key={id}
-    >
+    <a className='product' key={id} >
       {isFavorite && <span className='star-symbol'>★</span>}
       <Image src={thumbnail} alt="product-img" />
-      <p>{name || title}</p>
-      <p>$ {price}</p>
-      <button className='btn-favorite' onClick={handleFavorites} >
+      <p className='title'>{name || title}</p>
+      <p className='price'>$ {price}</p>
+      <button className='btn-favorites' onClick={handleFavorites} >
         {isFavorite ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
       </button>
     </a>

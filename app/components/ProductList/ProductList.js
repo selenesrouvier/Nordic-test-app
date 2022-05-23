@@ -23,11 +23,10 @@ const ProductList = ({products, number, setNumber}) => {
 	if (products) {
     return (
       <div className="products-container">
-				<Formulario2 />
-
+				
         {products.map((product) => {
           return (
-						<>
+						<div className="product-container">
 							<ProductCard
 								key={product.id}
 								product={product}
@@ -37,7 +36,7 @@ const ProductList = ({products, number, setNumber}) => {
 								}}
 							/>
 							<br/>
-						</>
+						</div>
           )
         })}
       </div>

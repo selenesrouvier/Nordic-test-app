@@ -1,3 +1,41 @@
+@import '../../styles/variables';
+
+@import '../../components/ProductList/styles.scss';
+@import '../../components/ProductCard/styles.scss';
+@import '../../components/PositionTask/styles.scss';
+@import '../../components/FlexboxTask/styles.scss';
+
 .home-container {
-  background-color: red;
+  h2 {
+    color: $test-color-blue;
+  }
+  .container-yellow {
+    height: 100px;
+    width: 100%;
+    background-color: $yellow-color;
+  }
+  .container-green {
+    h2 {
+      font-size: 22px;
+      color: black;
+      font-weight: normal;
+      font-family: $font-test;
+    }
+    .product {
+      display: inline-block;
+      .product-box {
+        height: 170px;
+        width: 100px;
+        background-color: $green-color;
+        margin: 20px;
+      }
+      h2 {
+        font-size: 15px;
+        color: black;
+        text-align: center;
+        font-weight: normal;
+        font-family: $font-test;
+      }
+    }
+  }
 }

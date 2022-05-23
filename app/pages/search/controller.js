@@ -30,6 +30,7 @@ exports.render =  render = (req, res) => {
   res.render(Search, { 
     products: res.locals.products,
     translations: req.translations,
+    device: req.device,
     imagesPrefix
   })
 }

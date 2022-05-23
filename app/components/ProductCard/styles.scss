@@ -1,0 +1,19 @@
+.product {
+	img {
+		display: flex;
+		margin: auto;
+	}
+	.title {
+		font-size: 16px;
+		text-align: center;
+	}
+	.price {
+		text-align: center;
+		font-size: 16px;
+		color: grey;
+	}
+	.btn-favorites {
+		display: flex;
+		margin: auto;
+	}
+}

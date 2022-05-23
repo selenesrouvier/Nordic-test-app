@@ -1,0 +1,21 @@
+.products-container {
+	.product-container {
+		background-color: white;
+		width: 29%;
+		display: inline-block;
+		border: 1px solid lightgray;
+		margin: 20px;
+		padding: 10px;
+		border-radius: 10px;
+		box-shadow: 0 0 15px lightgray;
+		.test {
+				text-decoration: underline;
+		}
+		&:nth-child(odd) {
+				background-color: lightgrey;
+		}
+		&:nth-child(even) {
+				background-color: grey;
+		}
+	}
+}

@@ -1,33 +1,49 @@
 const React = require('react');
-const { useState } = require('react');
+const { useState, useRef } = require('react');
 const serialize = require('serialize-javascript');
 const injectI18n = require('nordic/i18n/injectI18n');
 const Script = require('nordic/script');
+const Style = require('nordic/style');
 const Image = require('nordic/image');
-
 const restclient = require('nordic/restclient')({
   baseURL: '/api'
 })
 
-const View = ({ products, translations, i18n, imagesPrefix }) => {
+const View = ({ products, translations, i18n, imagesPrefix, device }) => {
 
+  const inputRef = useRef();
   const [productsList, setProductsList] = useState(products)
   
   const preloadedState = {
     i18n,
     translations,
     products,
-    imagesPrefix
+    imagesPrefix, 
+    device
   };
+  console.log('device', device)
 
-  const getProducts = () => {
+  const getProducts = (e) => {
     return restclient.get('/search')
       .then(newProducts => {
         setProductsList(newProducts.data)      
         console.log('new products', products)
       })
       .catch(err => console.log(err))
+    /*e.preventDefault();
+    const inputValue = inputRef.current.value;
+
+    window.location.href = `/listado?q=${inputValue}`*/
   }
+
+  /*
+  <form>
+          <input ref={inputRef} type='text' placeholder={i18n.gettext('Buscá un producto..')}/>
+          <button onClick={getProducts}>
+            {i18n.gettext('Buscar')}
+          </button>
+        </form>
+        */
 
   return (
     <>
@@ -37,15 +53,17 @@ const View = ({ products, translations, i18n, imagesPrefix }) => {
           console.log('Demo page is loaded!');
         `}
       </Script>
+      <Style href="search.css"/>
       <Script src="vendor.js" />
       <Script src="search.js" />
       
       <div className="products-container">
         
-        <h2>{i18n.gettext('LISTADO DE PRODUCTOS:')}</h2>
+        <h2 className='test'>{i18n.gettext('LISTADO DE PRODUCTOS:')}</h2>
+        
         
         <button onClick={getProducts}>
-          {i18n.gettext('Search')}
+          {i18n.gettext('Buscar')}
         </button>
 
         {productsList.map((product, index) => {

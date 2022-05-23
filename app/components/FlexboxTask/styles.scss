@@ -1,0 +1,41 @@
+.container-flexbox {
+	height: 500px;
+	background-color: lightgray;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: stretch;
+	.bloque {
+		width: 100px;
+		height: 100px;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		&.one {
+			background-color: green;
+			//align-self: flex-start;
+			order: 4;
+			//flex-grow: 1;
+		}
+		&.two {
+			background-color: red;
+			//lign-self: flex-end;
+			order: 3;
+			//flex-grow: 1;
+		}
+		&.three {
+			background-color: purple;
+			//align-self: center;
+			order: 2;
+			//flex-grow: 1;
+		}
+		&.four {
+			background-color: blue;
+			//align-self: baseline;
+			order: 1;
+			//flex-grow: 1;
+		}
+	}
+}
